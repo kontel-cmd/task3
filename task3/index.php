@@ -13,16 +13,14 @@ $str = '123.45abc';
 echo (int)$str . "<br>";
 echo (float)$str . "<br>";
 echo (int)(bool)$str . "<br>";
-
 echo "<br>";
 
 // 2
 function checkType($var): string {
-    return gettype($var);
+   return gettype($var);
 }
 echo checkType(42) . "<br>";
 echo checkType('hello') . "<br>";
-
 echo "<br>";
 
 // 3
@@ -38,9 +36,8 @@ echo "<br>";
 // 4
 $values = [0, '', 'false', [], null, 42];
 foreach ($values as $val) {
-    echo ($val ? 'TRUE' : 'FALSE') . "<br>";
+   echo ($val ? 'TRUE' : 'FALSE') . "<br>";
 }
-
 echo "<br>";
 
 // 5
@@ -48,7 +45,6 @@ echo ('10' + 5) . "<br>";
 echo ('10' . 5) . "<br>";
 echo ((int)'10abc' + 5) . "<br>";
 echo ('10abc' . 5) . "<br>";
-
 echo "<br>";
 
 // 6
@@ -69,13 +65,12 @@ function callFn(callable $fn) {
     $fn();
 }
 callFn('greet');
-
 echo "<br>";
 
 // 8
 function showItems(iterable $items) {
     foreach ($items as $item) {
-        echo $item . "<br>";
+      echo $item . "<br>";
     }
 }
 showItems([1, 2, 3]);
@@ -88,7 +83,7 @@ showItems(gen());
 echo "<br>";
 
 // 9
-$arr = ['name' => 'Ann', 'age' => 20];
+$arr = ['name' => 'Kostya', 'age' => 16];
 $obj = (object)$arr;
 print_r($obj);
 $back = (array)$obj;
@@ -115,8 +110,8 @@ echo "<br>";
 
 // 12
 $types = [
-    1,
-    'str',
+   1,
+   'str',
     1.2,
     true,
     null,
@@ -152,16 +147,16 @@ echo "<br>";
 // 18
 
 function handle($value) {
-    if (is_int($value)) return $value * 2;
-    if (is_string($value)) return "\"$value\"";
-    if (is_array($value)) return count($value);
-    if (is_object($value) && method_exists($value, 'run')) return $value->run();
+   if (is_int($value)) return $value * 2;
+   if (is_string($value)) return "\"$value\"";
+   if (is_array($value)) return count($value);
+   if (is_object($value) && method_exists($value, 'run')) return $value->run();
     return null;
 }
 
 class Value {
     public function run() {
-        return "Running";
+      return "Running";
     }
 }
 
@@ -174,17 +169,10 @@ echo handle(new Value()) . "\n";
 // 19
 
 $res = fopen(__FILE__, 'r');
-$types = [
-    1,
-    's',
-    1.1,
-    true,
-    [1],
-    null
+$types = [1, 'k', 1.1, true, [1], null];
    
-];
 foreach ($types as $v) {
-    echo gettype($v) . "<br>";
+   echo gettype($v) . "<br>";
 }
 fclose($res);
 
@@ -192,12 +180,12 @@ echo "<br>";
 
 // 20
 function describe(mixed $v): string {
-    return match (true) {
-        is_int($v) => 'Integer',
-        is_string($v) => 'String',
-        is_array($v) => 'Array',
-        is_bool($v) => 'Boolean',
-    };
+   return match (true) {
+   is_int($v) => 'Integer',
+   is_string($v) => 'String',
+   is_array($v) => 'Array',
+   is_bool($v) => 'Boolean',
+   };
 }
 echo describe(10) . "<br>";
 echo describe("abc") . "<br>";
@@ -221,11 +209,11 @@ $vals = [
     123
 ];
 foreach ($vals as $v) {
-    var_dump([
-        'array' => is_array($v),
-        'object' => is_object($v),
-        'callable' => is_callable($v),
-        'iterable' => is_iterable($v),
+   var_dump([
+      'array' => is_array($v),
+      'object' => is_object($v),
+      'callable' => is_callable($v),
+      'iterable' => is_iterable($v),
     ]);
 }
 
@@ -239,9 +227,9 @@ echo "<br>";
 
 // 24
 $user = [
-    'name' => 'Kostya',
-    'age' => 30,
-    'email' => 'kostya@mail.com'
+   'name' => 'Kostya',
+   'age' => 30,
+   'email' => 'kostya@mail.com'
 ];
 echo $user['name'] . "<br>";
 echo $user['age'] . "<br>";
@@ -251,12 +239,12 @@ echo "<br>";
 
 // 25
 $students = [
-    ['name' => 'Kostya', 'grades' => [5, 5, 3]],
-    ['name' => 'Dima', 'grades' => [4, 4, 4]],
+ ['name' => 'Kostya', 'grades' => [5, 5, 3]],
+ ['name' => 'Dima', 'grades' => [4, 4, 4]],
 ];
 foreach ($students as $s) {
-    $avg = array_sum($s['grades']) / count($s['grades']);
-    echo $s['name'] . ": $avg<br>";
+   $avg = array_sum($s['grades']) / count($s['grades']);
+   echo $s['name'] . ": $avg<br>";
 }
 
 // 26
@@ -313,7 +301,7 @@ echo $sum . "<br>";
 echo "<br>";
 
 // 33
-$user = ['name' => 'Ann', 'email' => 'a@mail.com'];
+$user = ['name' => 'Kostya', 'email' => 'Kost@mail.com'];
 var_dump(array_key_exists('email', $user));
 
 echo "<br>";
@@ -401,9 +389,9 @@ echo "<br>";
 
 // 45
 function walk(array $arr) {
-    foreach ($arr as $item) {
-        if (is_array($item)) {
-            walk($item);
+   foreach ($arr as $item) {
+      if (is_array($item)) {
+          walk($item);
         } else {
             echo $item . "<br>";
         }
@@ -425,7 +413,6 @@ echo "<br>";
 $range = range(1, 100);
 $div7 = array_filter($range, fn($x) => $x % 7 === 0);
 print_r($div7);
-
 
 ?>
 </body>
